@@ -20,6 +20,11 @@ const userController = {
         // si pas bien ajouté, on redirige vers la page notfound
     },
     getUserById : (req, res) => {
+
+
+        throw Error("UserNotFound");
+
+
         // Pour récupérer la valeur du paramètre
         // req.params.id
         // On appelle le service qui va chercher le user correspondant à l'id

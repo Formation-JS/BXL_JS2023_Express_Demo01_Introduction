@@ -1,4 +1,5 @@
 const userController = require("../controllers/user.controller");
+const routelvlMiddleware = require("../middlewares/routelvl.middleware");
 
 const userRouter = require("express").Router();
 
@@ -16,7 +17,10 @@ const userRouter = require("express").Router();
 //#endregion
 
 // Va fonctionner pour /users et pour /user
-userRouter.get("/", userController.getUsers);
+// Pour ajouter un middleware dans une route, ça se passe entre le path et la fonction (controller)
+// Vous pouvez mettre autant de middlewares que vous voulez
+// ! Ils sont lus de gauche à droite
+userRouter.get("/", routelvlMiddleware, userController.getUsers);
 userRouter.post("/", userController.postUser);
 
 // Pour une route avec un segment dynamique, on rajoute : à la partie qui va changer
