@@ -4,6 +4,11 @@
 ```
     npm init
 ```
+```
+    npm i -D nodemon (pour dev)
+```
+
+
 Structure du projet :
 - controllers -> logique de traitement en fonction de la route et de la méthode, on va renvoyer une vue (si templating) ou un réponse API (si api) avec success ou error
 - middlewares -> va intercepter la requête et faire des traitements dessus (plusieurs types de middleware (app, route, error))
@@ -16,7 +21,10 @@ Structure du projet :
 
 
 ## 2) Installer Express
-
+<a href="https://expressjs.com/en/starter/installing.html" target="_blank">Doc install Express</a>
+```
+    npm i express
+```
 
 <br>
 <hr>
