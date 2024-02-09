@@ -18,7 +18,10 @@ userRouter.get("/", (req, res) => {
     res.send("<h1>Liste des utilisateurs</h1>");
 })
 userRouter.post("/", (req,res) => {
-    res.send("<h1> POST </h1>");
+    // Ajouter un nouvel utilisateur
+    // Vérification si bien ajouté
+        // si bien ajouté, je récupère son id (42)
+    res.redirect('/users?/42');
 })
 
 // Pour une route avec un segment dynamique, on rajoute : à la partie qui va changer

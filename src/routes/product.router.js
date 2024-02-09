@@ -5,8 +5,9 @@ productRouteur.route('/')
         const data = { products : [
             { id : 1, name : "Patates"}
         ]}
-        res.writeHead(200, {"Content-Type" : "application/json"})
-        res.end( JSON.stringify(data), "utf-8", () => { console.log("oui.");});
+        // res.writeHead(200, {"Content-Type" : "application/json"})
+        // res.end( JSON.stringify(data));
+        res.json(data)
     })
 
 productRouteur.route('/:id')
