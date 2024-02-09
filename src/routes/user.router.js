@@ -1,3 +1,5 @@
+const userController = require("../controllers/user.controller");
+
 const userRouter = require("express").Router();
 
 //#region Autre façon de faire les routes
@@ -14,23 +16,12 @@ const userRouter = require("express").Router();
 //#endregion
 
 // Va fonctionner pour /users et pour /user
-userRouter.get("/", (req, res) => {
-    res.send("<h1>Liste des utilisateurs</h1>");
-})
-userRouter.post("/", (req,res) => {
-    // Ajouter un nouvel utilisateur
-    // Vérification si bien ajouté
-        // si bien ajouté, je récupère son id (42)
-    res.redirect('/users?/42');
-})
+userRouter.get("/", userController.getUsers);
+userRouter.post("/", userController.postUser);
 
 // Pour une route avec un segment dynamique, on rajoute : à la partie qui va changer
 // /:id -> segment dynamique
 // /:id([0-9]+) -> segment dynamique avec un validateur regex, on n'accepte que les id qui sont des nombres (mais il faut au moins un chiffre)
-userRouter.get("/:id([0-9]+)", (req, res) => {
-    // Pour récupérer la valeur du paramètre
-    // req.params.id
-    res.send(`<h1>Affichage de l'utilisateur dont l'id est ${req.params.id}</h1>`)
-})
+userRouter.get("/:id([0-9]+)", userController.getUserById )
 
 module.exports = userRouter;
